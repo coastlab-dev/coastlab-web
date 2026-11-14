@@ -14,7 +14,7 @@ export default function LegalPage({ title, updated, intro, sections }) {
           <p className="reveal mt-4 text-sm text-white/40">Last updated: {updated}</p>
           <div className="reveal mt-6 rounded-xl border accent-border accent-bg-soft px-5 py-4 text-sm text-white/70">
             Placeholder text — final legal copy to be drafted and reviewed before
-            publishing. Will reference CoastLaB Development LLC once the entity is formed.
+            publishing. Will reference CoastLab Development LLC once the entity is formed.
           </div>
           {intro && (
             <p className="reveal mt-6 text-white/65 leading-relaxed">{intro}</p>

@@ -5,7 +5,7 @@ export default function Terms() {
     <LegalPage
       title="Terms & Conditions"
       updated="Placeholder"
-      intro="These Terms & Conditions govern your use of products by CoastLaB Development. This is placeholder copy pending final review."
+      intro="These Terms & Conditions govern your use of products by CoastLab Development. This is placeholder copy pending final review."
       sections={[
         {
           heading: 'Acceptance of Terms',
@@ -21,7 +21,7 @@ export default function Terms() {
         },
         {
           heading: 'Limitation of Liability',
-          body: 'Placeholder. This section will describe the limits of CoastLaB Development\'s liability to the extent permitted by law.',
+          body: 'Placeholder. This section will describe the limits of CoastLab Development\'s liability to the extent permitted by law.',
         },
         {
           heading: 'Changes to Terms',
@@ -29,7 +29,7 @@ export default function Terms() {
         },
         {
           heading: 'Contact',
-          body: 'Placeholder. Questions about these terms can be directed to the contact email below. Final legal copy will reference CoastLaB Development LLC once the entity is formed.',
+          body: 'Placeholder. Questions about these terms can be directed to the contact email below. Final legal copy will reference CoastLab Development LLC once the entity is formed.',
         },
       ]}
     />

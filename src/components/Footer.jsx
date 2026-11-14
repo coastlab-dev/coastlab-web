@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <div className="text-lg tracking-[0.18em] font-light">
             <span className="text-white">Coast</span>
-            <span className="accent-text">LaB</span>
+            <span className="accent-text">Lab</span>
           </div>
           <a
             href={`mailto:${CONTACT_EMAIL}`}

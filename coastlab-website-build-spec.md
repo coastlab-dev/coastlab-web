@@ -1,7 +1,7 @@
-# CoastLaB Development Website — Build Spec
+# CoastLab Development Website — Build Spec
 
 ## Overview
-Build a React website for CoastLaB Development, a small software company (LLC in process of being filed) whose first product is Vault, an iMessage app. Domain: coastlab.dev. Prioritize a clean, modern, well-crafted UI — this is a portfolio-quality company site, not a throwaway landing page.
+Build a React website for CoastLab Development, a small software company (LLC in process of being filed) whose first product is Vault, an iMessage app. Domain: coastlab.dev. Prioritize a clean, modern, well-crafted UI — this is a portfolio-quality company site, not a throwaway landing page.
 
 ## Tech
 - React (component-based)
@@ -35,7 +35,7 @@ Footer (all pages): contact email, copyright line, links to Privacy/Terms.
 ## Copy
 
 ### Home — About Us
-> CoastLaB Development started with a passion for creating tools to enhance the everyday functions of how we use technology. Here at CoastLaB we start with projects we are passionate about internally and want to share with the world. We believe this intrinsic desire to create our products is imperative to driving innovation and staying empathetic to users.
+> CoastLab Development started with a passion for creating tools to enhance the everyday functions of how we use technology. Here at CoastLab we start with projects we are passionate about internally and want to share with the world. We believe this intrinsic desire to create our products is imperative to driving innovation and staying empathetic to users.
 
 ### Home — Current Projects
 - **Vault: Save and Send Sounds** — links to `/vault`
@@ -64,12 +64,12 @@ Include a placeholder for the official Apple "Download on the App Store" badge, 
 Structure with a "Vault" heading/section so it's clear the page will hold multiple products' support content later. Placeholder FAQ-style content is fine for now (e.g., "How do I record a clip?", "Where are my clips stored?", "My clip won't send — what do I check?").
 
 ### Privacy Policy / Terms & Conditions
-Use placeholder text for now — final legal copy should be drafted separately (note: needs review before publishing, and should reference CoastLaB Development LLC once the entity is formed). Structure the page with clear headers so real content can be dropped in later:
-- Privacy Policy: Information We Collect, How Data Is Stored (note: clips stored in user's private iCloud via CloudKit, not on CoastLaB servers), Third-Party Services, Contact
+Use placeholder text for now — final legal copy should be drafted separately (note: needs review before publishing, and should reference CoastLab Development LLC once the entity is formed). Structure the page with clear headers so real content can be dropped in later:
+- Privacy Policy: Information We Collect, How Data Is Stored (note: clips stored in user's private iCloud via CloudKit, not on CoastLab servers), Third-Party Services, Contact
 - Terms & Conditions: Acceptance of Terms, Use of the App, Intellectual Property, Limitation of Liability, Changes to Terms, Contact
 
 ## Assets / Placeholders (not final yet)
-- Logo/wordmark: use a styled text wordmark ("CoastLaB" in Oswald Light) as placeholder — no image logo yet
+- Logo/wordmark: use a styled text wordmark ("CoastLab" in Oswald Light) as placeholder — no image logo yet
 - Vault icon: placeholder shape/icon acceptable
 - "How it works" icons: simple placeholder icons (record/send/play)
 - App Store badge: placeholder, non-functional link

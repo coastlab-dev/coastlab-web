@@ -8,7 +8,7 @@ export default function Wordmark({ to = '/', className = '' }) {
       className={`inline-flex items-baseline text-2xl tracking-[0.18em] font-light ${className}`}
     >
       <span className="text-white">Coast</span>
-      <span className="accent-text">LaB</span>
+      <span className="accent-text">Lab</span>
     </Link>
   )
 }

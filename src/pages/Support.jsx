@@ -14,7 +14,7 @@ const products = [
       },
       {
         q: 'Where are my clips stored?',
-        a: 'Your clips are saved in your own private iCloud via CloudKit — not on CoastLaB servers. They stay tied to your Apple account.',
+        a: 'Your clips are saved in your own private iCloud via CloudKit — not on CoastLab servers. They stay tied to your Apple account.',
       },
       {
         q: "My clip won't send — what do I check?",

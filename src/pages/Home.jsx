@@ -18,7 +18,7 @@ export default function Home() {
             <span className="accent-text">technology</span> feel effortless.
           </h1>
           <p className="reveal mt-8 max-w-2xl text-lg md:text-xl text-white/65 leading-relaxed">
-            CoastLaB Development builds products we're passionate about — starting
+            CoastLab Development builds products we're passionate about — starting
             with the small, everyday moments technology should get right.
           </p>
           <div className="reveal mt-10 flex flex-wrap gap-4">
@@ -41,8 +41,8 @@ export default function Home() {
       {/* About */}
       <Section id="about" eyebrow="About Us" title="Built from passion, for people.">
         <p className="reveal text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl">
-          CoastLaB Development started with a passion for creating tools to
-          enhance the everyday functions of how we use technology. Here at CoastLaB
+          CoastLab Development started with a passion for creating tools to
+          enhance the everyday functions of how we use technology. Here at CoastLab
           we start with projects we are passionate about internally and want to
           share with the world. We believe this intrinsic desire to create our
           products is imperative to driving innovation and staying empathetic to
