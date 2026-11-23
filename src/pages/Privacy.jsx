@@ -1,312 +1,230 @@
-import Layout from '../components/Layout'
-import useReveal from '../hooks/useReveal'
+import LegalPage, { Mail, A } from '../components/LegalPage'
+import { CONTACT_EMAIL, COMPANY_LEGAL } from '../config'
 
-const VAULT_EMAIL = 'matlab0510@gmail.com'
-
-// Vault Privacy Policy. Structured content — swap the effective/updated dates
-// (currently placeholders) at App Store / TestFlight submission time.
 const sections = [
   {
-    heading: 'Who We Are',
-    blocks: [
-      { p: 'Vault is developed and operated by Matt LaBarca, an individual developer.' },
-      {
-        p: 'For purposes of the EU/UK General Data Protection Regulation, Matt LaBarca is the data controller for the limited personal information described in this policy.',
-      },
-      { p: `Contact: ${VAULT_EMAIL}`, email: true },
-    ],
-  },
-  {
-    heading: 'Summary',
+    heading: 'Who we are',
     blocks: [
       {
-        p: 'Vault is built so that we, the developer, see as little of your data as technically possible. We operate no servers and no backend database. Your audio clips are stored in your own iCloud account using Apple’s CloudKit framework. We cannot browse, download, or listen to the contents of your private Vault library.',
-      },
-      {
-        p: 'The main exceptions — the things you should actually read about — are shared clips (Section 5) and reports you submit (Section 4.4).',
+        p: (
+          <>
+            Vault is operated by {COMPANY_LEGAL}. If you have any questions about this policy or
+            your data, contact us at <Mail to={CONTACT_EMAIL} />.
+          </>
+        ),
       },
     ],
   },
   {
-    heading: 'Minimum Age',
+    heading: 'Information Vault handles',
     blocks: [
+      { sub: 'a. Audio clips and clip details' },
       {
-        p: 'You must be at least 13 years old to use Vault. The App presents an age confirmation screen before use. We do not knowingly collect personal information from anyone under 13.',
+        p: 'When you record a clip, or import one from the Files app, Voice Memos, a video, the iOS share sheet, or Shortcuts, Vault stores the resulting audio file and the details you give it (such as the clip’s name and whether you mark it as a favorite) on your device.',
       },
       {
-        p: `If you believe a child under 13 is using Vault or that we have received information from a child under 13, contact us at ${VAULT_EMAIL} and we will take steps to address it promptly.`,
+        p: 'Audio you import from a video is extracted on your device using the system media picker. Vault only receives the specific item you select; it does not browse or access your broader photo or video library.',
       },
-    ],
-  },
-  {
-    heading: 'Information the App Handles',
-    blocks: [
-      { sub: '4.1 Audio Clips and Related Content' },
+      { sub: 'b. iCloud storage and sync (CloudKit)' },
+      {
+        p: `Clips you create are uploaded to your own private iCloud database associated with your Apple Account, using Apple’s CloudKit. This is used to back up your clips and to enable sharing. Vault stores these clips only in your private iCloud database — never in a public database. We (${COMPANY_LEGAL}) cannot see the contents of your private iCloud data; it is governed by Apple’s iCloud terms and your device’s iCloud settings.`,
+      },
+      { sub: 'c. Sharing clips (CKShare and iMessage)' },
+      {
+        p: 'When you send a clip through the Vault iMessage extension, Vault creates a read‑only share link to that clip in iCloud and sends it in your message. To let the recipient play the clip and to support safety features (blocking and reporting), the share includes:',
+      },
       {
         list: [
-          'Audio clips you record, import, or save (including clips imported from Voice Memos, the Files app, or saved from clips shared with you)',
-          'Names or labels you assign to clips',
-          'Basic organizational metadata such as creation date and clip duration',
+          'the audio clip, its name, and its length;',
+          'your display name, if you have set one in Settings; and',
+          'your iCloud identity information, specifically a stable Apple user record identifier and the name associated with your Apple Account. If you have not set a display name, the name associated with your Apple Account is shown to the recipient as the sender’s name.',
         ],
       },
       {
-        p: 'This content is stored as CloudKit records in your private iCloud database, associated with your Apple ID. It counts against your personal iCloud storage quota, in the same way Photos or Notes does. We do not receive a copy.',
+        p: 'Recipients can play clips you send them. Received clips are cached temporarily on the recipient’s device (for up to 24 hours) so they load quickly, and are then re‑checked against iCloud.',
       },
-      { sub: '4.2 What Audio Clips May Contain' },
+      { sub: 'd. Display name' },
       {
-        p: 'Audio clips can contain voices, background conversation, ambient sound, and other information that may be personal or sensitive. You control what you record and import. Please see Section 9 regarding your responsibilities when recording other people.',
+        p: 'If you set a display name in Settings, it is stored locally on your device (in Vault’s shared app storage) and is included in each clip you send, where it is shown to recipients as the sender’s name. If you leave it blank, recipients see the name associated with your Apple Account instead, as described above. You can change or clear your display name at any time.',
       },
-      { sub: '4.3 Age Confirmation' },
+      { sub: 'e. Age verification' },
       {
-        p: 'The App records a pass/fail flag locally on your device to avoid repeating the age confirmation check. This flag never leaves your device and is not transmitted anywhere. We do not collect, store, or transmit your date of birth.',
+        p: 'When you first use Vault, we ask for your date of birth to confirm you are at least 13 years old. Your date of birth is used only to make this calculation and is not stored. Vault saves only a pass/fail result and the date the check occurred.',
       },
-      { sub: '4.4 Reports and Blocks' },
+      { sub: 'f. App Lock (Face ID / Touch ID)' },
       {
-        p: 'If you report a clip or block a user, the App records the minimum information needed to act on that report — such as a reference to the reported content, the fact that a report was made, and any description you provide. Reports are reviewed for safety and moderation purposes only.',
+        p: 'If you enable App Lock, Vault uses Face ID, Touch ID, or your device passcode to unlock the app. This authentication is handled entirely by iOS. Vault never receives or stores your biometric data.',
       },
-      { sub: '4.5 What We Do NOT Do' },
-      { p: 'Vault does not:' },
+      { sub: 'g. Blocking and hiding' },
       {
         list: [
-          'Require you to create an account with us or give us your name, email, or phone number',
-          'Contain advertising SDKs, ad networks, or ad tracking',
-          'Use third-party analytics services',
-          'Sell, rent, or share your personal information for money or for cross-context behavioral advertising',
-          'Track you across other apps or websites',
-          'Create voiceprints, perform speaker identification, or use any biometric analysis of audio. We do not collect or process biometric identifiers or biometric information.',
+          <><strong className="text-white/85">Blocking a sender:</strong> The sender’s Apple user record identifier is stored on your device and in your private iCloud database so your blocks stay in sync across your devices.</>,
+          <><strong className="text-white/85">Hiding a clip:</strong> The hidden clip’s identifier (and name, for display) is stored only on your device.</>,
         ],
       },
-    ],
-  },
-  {
-    heading: 'Sharing Clips — Please Read This Section',
-    blocks: [
+      { sub: 'h. Reporting content' },
       {
-        p: 'When you send a clip through Vault, the App creates an Apple CloudKit Share (a “CKShare”) and places a link to it in your iMessage. This is how the recipient is able to play the clip inside the message bubble.',
+        p: 'If you report a clip, Vault sends a report to our report‑handling provider, Formspree, so we can review potential abuse. A report includes the clip’s name, the clip’s identifier, the sender’s Apple user record identifier, a timestamp, and the description you write. This information is used solely to review reports and enforce our content and safety rules. (The reported audio itself is not transmitted with the report.)',
       },
+      { sub: 'i. Microphone' },
       {
-        callout:
-          'Important: That share link is configured with read-only public permission. This means anyone who obtains the link can play that clip — not only the person you originally sent it to. If a recipient forwards your message, shares a screenshot of the link, or the link is otherwise disclosed, the audio may be accessible to people you did not intend.',
+        p: 'Vault uses your device’s microphone only while you are actively recording a clip. Recordings are saved as described above.',
       },
-      { p: 'Please treat shared clips as you would treat anything else sent over a messaging app: assume it may be forwarded.' },
+      { sub: 'j. Diagnostic logs' },
       {
-        p: 'Recipients who choose to save a shared clip create their own independent copy in their own iCloud account. Deleting or unsharing your original clip does not delete copies that recipients have already saved.',
+        p: 'Vault writes diagnostic messages to the device’s system log to help with troubleshooting. These stay on the device, are managed by iOS, and are not sent to us. They may include technical identifiers such as clip and iCloud record identifiers, but not the contents of your clips.',
       },
+      { sub: 'k. Analytics' },
       {
-        p: 'Deleting a clip from within the App removes it from your library and disables its associated share link. There is currently no option to stop sharing a clip without deleting it; this is a limitation we may address in a future version.',
+        p: 'Vault includes an analytics framework, but it is turned off by default and currently collects nothing — no usage events are recorded, stored, or transmitted. If we ever enable analytics, we will update this Privacy Policy and the App Store privacy disclosures before doing so.',
       },
     ],
   },
   {
-    heading: 'How Information Is Stored and Secured',
+    heading: 'How we use information',
     blocks: [
-      {
-        p: 'Your clips reside in Apple’s CloudKit private database, tied to your iCloud account and protected by Apple’s iCloud security and encryption practices. Because we operate no backend of our own, we have no independent copy of your library and no administrative ability to access it.',
-      },
-      {
-        p: 'Your use of Vault therefore also involves Apple as a service provider. Apple’s handling of iCloud data is governed by Apple’s Privacy Policy.',
-      },
-      {
-        p: 'No system is perfectly secure. While we rely on Apple’s infrastructure and design the App to minimize data exposure, we cannot guarantee absolute security of information transmitted to or stored in iCloud, and we do not warrant that unauthorized access will never occur.',
-      },
-    ],
-  },
-  {
-    heading: 'How Information Is Used',
-    blocks: [
-      { p: 'The limited information available to us is used only to:' },
+      { p: 'We use the information above to:' },
       {
         list: [
-          'Operate the App’s core features (saving, organizing, playing, and sharing clips)',
-          'Enforce the minimum age requirement',
-          'Review reports of inappropriate, abusive, or infringing content and take action such as disabling a share link or blocking a user',
-          'Diagnose problems and maintain the App’s reliability',
-        ],
-      },
-      {
-        p: 'Under GDPR, our lawful bases are performance of a contract (providing the App’s functionality you requested) and legitimate interests (safety, moderation, and abuse prevention).',
-      },
-    ],
-  },
-  {
-    heading: 'Disclosure of Information',
-    blocks: [
-      { p: 'We do not sell your personal information. Information may be disclosed only:' },
-      {
-        list: [
-          'To Apple, as the provider of the iCloud/CloudKit infrastructure the App depends on',
-          'When required by law, including in response to a valid subpoena, court order, or other lawful request',
-          'To protect rights and safety, including investigating reports of abusive, harmful, or unlawful content, or responding to intellectual property complaints',
+          'provide core features — recording, importing, organizing, storing, syncing, and sharing clips;',
+          'deliver shared clips to recipients and show who sent a clip;',
+          'provide safety tools, including age gating, blocking, hiding, and reporting;',
+          'protect Vault and its users by reviewing reports and enforcing a ban list for abusive content or senders; and',
+          'diagnose and fix problems.',
         ],
       },
     ],
   },
   {
-    heading: 'Your Responsibilities When Recording',
+    heading: 'How information is shared',
     blocks: [
       {
-        p: 'Laws in some U.S. states and in many other countries require the consent of all parties before a conversation may be recorded. You are solely responsible for ensuring that any audio you record, import, or share through Vault complies with the laws that apply to you and to the people in the recording, and for obtaining any consent required.',
+        p: 'We do not sell your personal information and do not use it for advertising. Information is shared only in these limited ways:',
       },
       {
-        p: 'You are likewise responsible for ensuring you have the rights to any audio you import or share, including music, film, television, podcast, or other copyrighted material.',
+        list: [
+          <><strong className="text-white/85">Apple (iCloud / CloudKit / iMessage):</strong> to store, sync, and share your clips and to deliver messages. This data is handled under Apple’s privacy policy.</>,
+          <><strong className="text-white/85">People you share clips with:</strong> recipients receive the clips you send, along with your display name or Apple Account name as described above.</>,
+          <><strong className="text-white/85">Formspree:</strong> receives the abuse reports you submit, so we can review them.</>,
+          <><strong className="text-white/85">Legal and safety:</strong> we may disclose information if required by law or to protect the rights, safety, or property of Vault, our users, or the public.</>,
+        ],
       },
     ],
   },
   {
-    heading: 'Copyright Complaints',
+    heading: 'Content moderation and bans',
     blocks: [
       {
-        p: `If you believe content shared through Vault infringes your copyright, contact us at ${VAULT_EMAIL} with a description of the copyrighted work, the location or share link of the allegedly infringing material, your contact information, and a statement of good-faith belief that the use is not authorized. We will respond to valid notices, including by disabling access to the material where appropriate.`,
+        p: 'To keep Vault safe, we maintain a ban list. When a clip is opened, Vault checks whether the sender or the specific clip has been banned for abuse, and blocks playback if so. This check uses non‑content identifiers (a sender identifier and/or a clip identifier).',
       },
     ],
   },
   {
-    heading: 'Your Choices and Rights',
+    heading: 'Data retention',
     blocks: [
       {
         list: [
-          'Delete clips: Delete individual clips or your entire library from within the App at any time. This removes them from your private CloudKit database.',
-          'Stop sharing: Disable a share link at any time from within the App.',
-          'Block and report: Block other users and report content directly in the App.',
-          'Deleting the App: Uninstalling Vault does not automatically delete clips already stored in your iCloud account. Delete clips in the App first, or manage the data through your device’s iCloud storage settings.',
+          <><strong className="text-white/85">Clips on your device and in your private iCloud:</strong> kept until you delete them or remove the app. Deleting a clip removes it from your device and requests deletion of the corresponding iCloud record.</>,
+          <><strong className="text-white/85">Shared clips:</strong> when you delete a clip, recipients lose access as their cached copy expires (within about 24 hours).</>,
+          <><strong className="text-white/85">Reports:</strong> retained by us and Formspree as needed to review abuse and keep records of enforcement.</>,
+          <><strong className="text-white/85">Age‑check result and preferences:</strong> kept on your device until you remove the app.</>,
+        ],
+      },
+    ],
+  },
+  {
+    heading: 'Your choices and rights',
+    blocks: [
+      {
+        list: [
+          <><strong className="text-white/85">Delete clips:</strong> delete any clip at any time within the app.</>,
+          <><strong className="text-white/85">Clear your data:</strong> Settings includes options to delete your clips and clear Vault’s local data.</>,
+          <><strong className="text-white/85">Manage iCloud:</strong> control Vault’s iCloud usage from your device’s iCloud settings; signing out of iCloud stops syncing.</>,
+          <><strong className="text-white/85">Permissions:</strong> you can change microphone and Face ID permissions in the iOS Settings app at any time.</>,
+          <><strong className="text-white/85">Blocking and reporting:</strong> block senders, hide clips, and report abusive content from within the app.</>,
         ],
       },
       {
-        p: 'If you are in the EU or UK, you have rights to access, correct, delete, restrict, object to, and port your personal data, and to lodge a complaint with your local supervisory authority.',
-      },
-      {
-        p: 'If you are a California resident, you have rights under the CCPA/CPRA to know, delete, correct, and opt out of sale or sharing of personal information. We do not sell or share personal information as those terms are defined under California law, and we do not knowingly sell or share the personal information of consumers under 16.',
-      },
-      {
-        p: `Because we hold almost no information about you directly, most requests are fulfilled through the in-App deletion controls described above. For anything else, contact ${VAULT_EMAIL}.`,
+        p: (
+          <>
+            Depending on where you live, you may have additional rights to access, correct, or
+            delete personal information, or to object to certain processing. To make a request,
+            contact us at <Mail to={CONTACT_EMAIL} />. Note that clip contents stored in your
+            private iCloud are under your control and under Apple’s terms.
+          </>
+        ),
       },
     ],
   },
   {
-    heading: 'Data Retention',
+    heading: 'Children’s privacy',
     blocks: [
       {
-        p: 'Clips remain in your private iCloud database for as long as you keep them. We do not maintain independent copies. Records associated with reports and blocks are retained only as long as reasonably necessary for safety and moderation purposes.',
+        p: (
+          <>
+            Vault is not intended for children under 13, and we ask for your date of birth to
+            enforce this. We do not knowingly collect personal information from children under 13.
+            If you believe a child under 13 has used Vault, contact us at{' '}
+            <Mail to={CONTACT_EMAIL} /> and we will take appropriate action.
+          </>
+        ),
       },
     ],
   },
   {
-    heading: 'International Users',
+    heading: 'Security',
     blocks: [
       {
-        p: 'Vault is offered from the United States. If you use the App from outside the United States, be aware that information may be processed in the United States and other countries, which may have different data protection laws than your own. Where your clips are physically stored is determined by Apple’s iCloud practices for your account, not by us.',
+        p: 'Clips are stored within your device’s app sandbox and your private iCloud database, protected by your device and Apple Account security. App Lock adds optional Face ID/Touch ID protection. No method of storage or transmission is completely secure, but we work to protect your information using reasonable safeguards.',
       },
     ],
   },
   {
-    heading: 'Changes to This Policy',
+    heading: 'International users',
     blocks: [
       {
-        p: 'We may update this Privacy Policy from time to time. Material changes will be posted at this URL with a revised “Last Updated” date. Your continued use of Vault after changes are posted constitutes acceptance of the revised policy.',
+        p: 'Vault relies on Apple’s iCloud infrastructure and the Formspree service, which may process and store information in countries other than your own. By using Vault, you understand that your information may be processed in those locations in accordance with this policy.',
       },
     ],
   },
   {
-    heading: 'Contact',
-    blocks: [{ p: `Matt LaBarca — ${VAULT_EMAIL}`, email: true }],
+    heading: 'Changes to this policy',
+    blocks: [
+      {
+        p: 'We may update this Privacy Policy from time to time. When we do, we will revise the “Last updated” date above and, where appropriate, provide additional notice. Significant changes — such as enabling analytics — will be reflected here and in our App Store disclosures before they take effect.',
+      },
+    ],
+  },
+  {
+    heading: 'Contact us',
+    blocks: [
+      { p: 'If you have questions or requests regarding this Privacy Policy or your information, contact us at:' },
+      {
+        p: (
+          <>
+            {COMPANY_LEGAL}
+            <br />
+            Email: <Mail to={CONTACT_EMAIL} />
+            <br />
+            Help Center: <A href="/support">coastlab.dev/support</A>
+          </>
+        ),
+      },
+    ],
   },
 ]
 
-function Blocks({ blocks }) {
-  return blocks.map((b, i) => {
-    if (b.sub) {
-      return (
-        <h3 key={i} className="text-lg text-white/90 mt-6 mb-2">
-          {b.sub}
-        </h3>
-      )
-    }
-    if (b.list) {
-      return (
-        <ul key={i} className="my-3 space-y-2 pl-1">
-          {b.list.map((item, j) => (
-            <li key={j} className="flex gap-3 text-white/65 leading-relaxed">
-              <span className="accent-text mt-1.5 h-1.5 w-1.5 rounded-full bg-current shrink-0" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
-    if (b.callout) {
-      return (
-        <p
-          key={i}
-          className="my-4 rounded-xl border accent-border accent-bg-soft px-5 py-4 text-white/80 leading-relaxed"
-        >
-          {b.callout}
-        </p>
-      )
-    }
-    if (b.email) {
-      const parts = b.p.split(VAULT_EMAIL)
-      return (
-        <p key={i} className="my-3 text-white/65 leading-relaxed">
-          {parts[0]}
-          <a href={`mailto:${VAULT_EMAIL}`} className="accent-text hover:brightness-110">
-            {VAULT_EMAIL}
-          </a>
-          {parts[1]}
-        </p>
-      )
-    }
-    return (
-      <p key={i} className="my-3 text-white/65 leading-relaxed">
-        {b.p}
-      </p>
-    )
-  })
-}
-
 export default function Privacy() {
-  useReveal()
   return (
-    <Layout theme="theme-main">
-      <section className="ambient relative overflow-hidden">
-        <div className="mx-auto max-w-3xl px-6 pt-20 pb-8 md:pt-28">
-          <p className="reveal text-sm tracking-[0.3em] uppercase text-white/45 mb-4">Legal</p>
-          <h1 className="reveal text-4xl md:text-6xl font-light">Privacy Policy for Vault</h1>
-          <div className="reveal mt-4 space-y-1 text-sm text-white/40">
-            <p>Effective Date: [DATE — use your TestFlight/App Store submission date]</p>
-            <p>Last Updated: [DATE]</p>
-          </div>
-          <p className="reveal mt-6 text-white/65 leading-relaxed">
-            Vault (“the App,” “we,” “us,” or “our”) is an iMessage app that lets you save,
-            organize, and share personal audio clips directly in Messages. This Privacy
-            Policy explains what information the App handles, how it is stored, and what
-            choices you have.
-          </p>
-          <p className="reveal mt-3 text-white/65 leading-relaxed">
-            By using Vault, you agree to the practices described in this policy. If you do
-            not agree, please do not use the App.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <div className="mx-auto max-w-3xl px-6 py-10 space-y-10">
-          {sections.map((s, i) => (
-            <div key={i} className="reveal">
-              <h2 className="text-2xl font-light accent-text mb-2">
-                {i + 1}. {s.heading}
-              </h2>
-              <Blocks blocks={s.blocks} />
-            </div>
-          ))}
-
-          <p className="reveal border-t border-line/60 pt-8 text-sm text-white/40 italic leading-relaxed">
-            This document describes Vault’s architecture accurately as of the Last Updated
-            date: Apple CloudKit private database storage with CKShare-based sharing and no
-            developer-operated backend. It is a starting draft prepared without attorney
-            review.
-          </p>
-        </div>
-      </section>
-    </Layout>
+    <LegalPage
+      title="Vault — Privacy Policy"
+      updated="November 23, 2026"
+      intro={[
+        `Vault (“Vault,” “we,” “us,” or “our”) is a voice‑clip app developed by ${COMPANY_LEGAL} that lets you record, import, organize, and share short audio clips, including through an iMessage extension. This Privacy Policy explains what information Vault handles, how it is used, and the choices you have.`,
+        'We designed Vault to keep your data on your own device and in your own private iCloud account wherever possible. Vault does not have its own user accounts, does not sell your data, and does not use your data for advertising.',
+      ]}
+      sections={sections}
+      footer={<>See also the <A href="/terms">Vault Terms of Service</A>.</>}
+    />
   )
 }
