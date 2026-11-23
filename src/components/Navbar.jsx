@@ -7,6 +7,8 @@ const links = [
   { label: 'Projects', to: '/#projects' },
   { label: 'Vault', to: '/vault' },
   { label: 'Support', to: '/support' },
+  { label: 'Privacy', to: '/privacy' },
+  { label: 'Terms', to: '/terms' },
   { label: 'Contact', to: '/#contact' },
 ]
 
