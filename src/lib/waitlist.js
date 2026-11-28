@@ -5,7 +5,7 @@ export function waitlistReady() {
 }
 
 // Where the visitor came from, so TikTok ad sign-ups can be told apart from
-// organic ones. Reads ?utm_source / ?ref, e.g. coastlab.dev/waitlist?utm_source=tiktok
+// organic ones. Reads ?utm_source / ?ref, e.g. coastlab.dev/vault/waitlist?utm_source=tiktok
 export function signupSource() {
   try {
     const q = new URLSearchParams(window.location.search)
@@ -32,7 +32,7 @@ export async function joinWaitlist(email, ageConfirmed) {
     email,
     age13: ageConfirmed ? 'yes' : 'no',
     source: signupSource(),
-    page: 'coastlab.dev/waitlist',
+    page: 'coastlab.dev/vault/waitlist',
   })
   let res
   try {

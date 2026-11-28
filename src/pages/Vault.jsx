@@ -43,7 +43,7 @@ export default function Vault() {
             <div className="reveal mt-10 flex flex-wrap items-center gap-4">
               <AppStoreBadge />
               <Link
-                to="/waitlist"
+                to="/vault/waitlist"
                 className="inline-flex items-center px-7 py-3 rounded-full border accent-border accent-text text-sm tracking-widest uppercase hover:accent-bg-soft transition"
               >
                 Join the waitlist
@@ -125,7 +125,7 @@ export default function Vault() {
           </p>
           <div className="reveal mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              to="/waitlist"
+              to="/vault/waitlist"
               className="inline-flex items-center px-7 py-3 rounded-full border accent-border accent-text text-sm tracking-widest uppercase hover:accent-bg-soft transition"
             >
               Join the waitlist

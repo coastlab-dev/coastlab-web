@@ -5,7 +5,7 @@ import useReveal from '../hooks/useReveal'
 import { WAITLIST } from '../config'
 import { EMAIL_RE, joinWaitlist, waitlistReady } from '../lib/waitlist'
 
-// Vault waitlist — coastlab.dev/waitlist
+// Vault waitlist — coastlab.dev/vault/waitlist
 // Uses the Vault app's own brand (Comfortaa + Outfit, indigo accent, pink→indigo
 // logo gradient, gold sparkle for Vault Plus) so it matches the TikTok ads and
 // App Store screenshots people arrive from. Tokens live under .theme-vaultapp in index.css.

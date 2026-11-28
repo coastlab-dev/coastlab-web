@@ -1,6 +1,6 @@
 # Vault waitlist → Google Sheet
 
-The form at `coastlab.dev/waitlist` posts sign-ups to a Google Apps Script web app,
+The form at `coastlab.dev/vault/waitlist` posts sign-ups to a Google Apps Script web app,
 which appends them to a Google Sheet you own. No server, no cost.
 
 ## Setup (about 2 minutes)
@@ -28,8 +28,8 @@ Then sign up on the live page with your own email and look for the new row in th
 
 **Source** comes from the link people used. Use tagged links in ads so you can see what worked:
 
-- TikTok bio: `https://coastlab.dev/waitlist?utm_source=tiktok&utm_campaign=bio`
-- TikTok ads: `https://coastlab.dev/waitlist?utm_source=tiktok&utm_campaign=launch&utm_content=<ad name>`
+- TikTok bio: `https://coastlab.dev/vault/waitlist?utm_source=tiktok&utm_campaign=bio`
+- TikTok ads: `https://coastlab.dev/vault/waitlist?utm_source=tiktok&utm_campaign=launch&utm_content=<ad name>`
 
 ## Notes
 

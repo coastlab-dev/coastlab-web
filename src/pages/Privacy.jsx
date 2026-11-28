@@ -177,7 +177,7 @@ const sections = [
     heading: 'Vault waitlist (website)',
     blocks: [
       {
-        p: 'If you join the Vault waitlist at coastlab.dev/waitlist, we collect the email address you enter, your confirmation that you are 13 or older, the date you signed up, and which link brought you to the page (for example, a TikTok ad or our TikTok profile). We do not collect your name, phone number, or anything from the Vault app through the waitlist.',
+        p: 'If you join the Vault waitlist at coastlab.dev/vault/waitlist, we collect the email address you enter, your confirmation that you are 13 or older, the date you signed up, and which link brought you to the page (for example, a TikTok ad or our TikTok profile). We do not collect your name, phone number, or anything from the Vault app through the waitlist.',
       },
       {
         p: `We use this information only to email you about Vault, such as when it launches on the App Store. We do not sell it or share it with advertisers. The list is stored in a private Google Sheet, so ${WAITLIST.providerName} stores it for us as our service provider.`,

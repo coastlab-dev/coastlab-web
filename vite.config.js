@@ -1,21 +1,26 @@
-import { copyFileSync, readFileSync, writeFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // Client-side routes from src/App.jsx. Keep this list in sync when adding pages.
-const routes = ['vault', 'support', 'privacy', 'terms', 'waitlist']
+// Nested routes (vault/waitlist) become dist/vault/waitlist.html. 'vault/index'
+// makes /vault/ (trailing slash) load too, since a vault/ folder now exists.
+// 'waitlist' is the old address; the app redirects it to /vault/waitlist.
+const routes = ['vault', 'vault/index', 'vault/waitlist', 'support', 'privacy', 'terms', 'waitlist']
 
 // Per-route <head> overrides, so links shared in iMessage / TikTok / Instagram
 // preview with the right title, text and image. Crawlers don't run JS, so the
 // tags must be in the HTML file itself.
+const waitlistMeta = {
+  title: 'Vault — join the waitlist',
+  description: "Your group chat's inside jokes, saved. Save clips, send them back in one tap in iMessage, and share a vault with the crew.",
+  image: 'https://coastlab.dev/brand/vault/og-waitlist.png',
+  url: 'https://coastlab.dev/vault/waitlist',
+}
 const routeMeta = {
-  waitlist: {
-    title: 'Vault — join the waitlist',
-    description: "Your group chat's inside jokes, saved. Save clips, send them back in one tap in iMessage, and share a vault with the crew.",
-    image: 'https://coastlab.dev/brand/vault/og-waitlist.png',
-    url: 'https://coastlab.dev/waitlist',
-  },
+  'vault/waitlist': waitlistMeta,
+  waitlist: waitlistMeta,
 }
 
 function withMeta(html, m) {
@@ -52,6 +57,7 @@ function githubPagesRoutes() {
       const index = resolve(outDir, 'index.html')
       for (const route of [...routes, '404']) {
         const out = resolve(outDir, `${route}.html`)
+        mkdirSync(dirname(out), { recursive: true })
         if (routeMeta[route]) writeFileSync(out, withMeta(readFileSync(index, 'utf8'), routeMeta[route]))
         else copyFileSync(index, out)
       }
