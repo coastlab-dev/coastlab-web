@@ -5,6 +5,7 @@ import Support from './pages/Support'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import NotFound from './pages/NotFound'
+import Waitlist from './pages/Waitlist'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Route path="/support" element={<Support />} />
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/terms" element={<Terms />} />
+      <Route path="/waitlist" element={<Waitlist />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )

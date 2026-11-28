@@ -56,3 +56,41 @@ body {
   opacity: 1;
   transform: none;
 }
+
+/* ===== Vault app brand (waitlist page) =====
+   Mirrors the iOS asset catalog (dark appearance): accent #575AF7, elevated #1C1C1C,
+   logo gradient #FF2D78 → #5856D6, Vault Plus gold #F0B649. Fonts: Comfortaa + Outfit. */
+.theme-vaultapp {
+  --accent: #7A7CFF;
+  --accent-soft: rgba(87, 90, 247, 0.16);
+  --accent-border: rgba(87, 90, 247, 0.40);
+  background: #050507;
+}
+.theme-vaultapp main { font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif; letter-spacing: 0; }
+.va-display { font-family: 'Comfortaa', 'Outfit', ui-sans-serif, system-ui, sans-serif; font-weight: 700; letter-spacing: -0.01em; text-wrap: balance; }
+.va-body { font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif; font-weight: 400; letter-spacing: 0; }
+.va-eyebrow { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; color: #8F91FF; }
+.va-grad-text { background: linear-gradient(100deg, #FF2D78 0%, #A34BE8 50%, #5856D6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.va-glow::before {
+  content: ''; position: absolute; inset: -10% -20% auto; height: 120%; pointer-events: none;
+  background:
+    radial-gradient(40% 45% at 78% 30%, rgba(255, 45, 120, 0.22), transparent 70%),
+    radial-gradient(45% 50% at 20% 10%, rgba(88, 86, 214, 0.28), transparent 70%);
+}
+.va-card { background: #111114; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; }
+.va-art { background: radial-gradient(80% 80% at 50% 0%, rgba(87, 90, 247, 0.18), transparent 70%), #0A0A0D; border: 1px solid rgba(255,255,255,0.06); }
+.va-field { background: #141418; border: 1px solid rgba(255, 255, 255, 0.12); transition: border-color .2s, box-shadow .2s; }
+.va-field:focus-within { border-color: #575AF7; box-shadow: 0 0 0 4px rgba(87, 90, 247, 0.25); }
+.va-btn { background: linear-gradient(100deg, #FF2D78, #7B4CF0 55%, #575AF7); box-shadow: 0 8px 28px -10px rgba(255, 45, 120, .6); transition: transform .15s, filter .15s; }
+.va-btn:hover { filter: brightness(1.08); }
+.va-btn:active { transform: scale(.98); }
+.va-btn:focus-visible, .va-ghost:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.va-ghost { border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.88); transition: border-color .15s, background .15s; }
+.va-ghost:hover { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.04); }
+.va-check { accent-color: #575AF7; }
+.va-new { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; color: #fff; background: #575AF7; border-radius: 999px; padding: 1px 8px; }
+.va-phone { background: linear-gradient(160deg, #3A3A44, #15151A 40%, #26262E); box-shadow: 0 40px 80px -30px rgba(88, 86, 214, .55), 0 0 0 1px rgba(255,255,255,.08) inset; }
+.va-plus-card { background: radial-gradient(70% 90% at 0% 0%, rgba(240, 182, 73, .22), transparent 60%), linear-gradient(135deg, #1A1508, #0E0E12 60%); border: 1px solid rgba(240, 182, 73, .35); }
+.va-float { animation: vaFloat 6s ease-in-out infinite; }
+@keyframes vaFloat { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-10px) rotate(-3deg); } }
+@media (prefers-reduced-motion: reduce) { .va-float { animation: none; transform: rotate(-3deg); } .reveal { transition: none; } }

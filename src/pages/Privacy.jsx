@@ -1,5 +1,5 @@
 import LegalPage, { Mail, A } from '../components/LegalPage'
-import { CONTACT_EMAIL, COMPANY_LEGAL } from '../config'
+import { CONTACT_EMAIL, COMPANY_LEGAL, WAITLIST } from '../config'
 
 const sections = [
   {
@@ -106,6 +106,7 @@ const sections = [
           <><strong className="text-white/85">Apple (iCloud / CloudKit / iMessage):</strong> to store, sync, and share your clips and to deliver messages. This data is handled under Apple’s privacy policy.</>,
           <><strong className="text-white/85">People you share clips with:</strong> recipients receive the clips you send, along with your display name or Apple Account name as described above.</>,
           <><strong className="text-white/85">Formspree:</strong> receives the abuse reports you submit, so we can review them.</>,
+          <><strong className="text-white/85">Google:</strong> stores the Vault waitlist (emails people enter on our website) in a private Google Sheet. See “Vault waitlist (website)” below.</>,
           <><strong className="text-white/85">Legal and safety:</strong> we may disclose information if required by law or to protect the rights, safety, or property of Vault, our users, or the public.</>,
         ],
       },
@@ -172,6 +173,29 @@ const sections = [
     ],
   },
   {
+    id: 'waitlist',
+    heading: 'Vault waitlist (website)',
+    blocks: [
+      {
+        p: 'If you join the Vault waitlist at coastlab.dev/waitlist, we collect the email address you enter, your confirmation that you are 13 or older, the date you signed up, and which link brought you to the page (for example, a TikTok ad or our TikTok profile). We do not collect your name, phone number, or anything from the Vault app through the waitlist.',
+      },
+      {
+        p: `We use this information only to email you about Vault, such as when it launches on the App Store. We do not sell it or share it with advertisers. The list is stored in a private Google Sheet, so ${WAITLIST.providerName} stores it for us as our service provider.`,
+      },
+      {
+        p: (
+          <>
+            Every email we send includes a way to unsubscribe. You can also ask us to remove your
+            email at any time by contacting <Mail to={CONTACT_EMAIL} />. We delete the waitlist
+            once we no longer need it to tell people about Vault&rsquo;s launch and major updates.
+            The waitlist is not intended for anyone under 13, and we delete any sign-up we learn
+            came from a child under 13.
+          </>
+        ),
+      },
+    ],
+  },
+  {
     heading: 'Security',
     blocks: [
       {
@@ -218,7 +242,7 @@ export default function Privacy() {
   return (
     <LegalPage
       title="Vault — Privacy Policy"
-      updated="November 23, 2026"
+      updated="November 27, 2026"
       intro={[
         `Vault (“Vault,” “we,” “us,” or “our”) is a voice‑clip app developed by ${COMPANY_LEGAL} that lets you record, import, organize, and share short audio clips, including through an iMessage extension. This Privacy Policy explains what information Vault handles, how it is used, and the choices you have.`,
         'We designed Vault to keep your data on your own device and in your own private iCloud account wherever possible. Vault does not have its own user accounts, does not sell your data, and does not use your data for advertising.',

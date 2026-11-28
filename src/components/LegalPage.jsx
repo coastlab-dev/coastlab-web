@@ -88,7 +88,7 @@ export default function LegalPage({ title, updated, intro = [], summary, toc = f
               <ol className="sm:columns-2 gap-8 space-y-1 text-sm">
                 {sections.map((s, i) => (
                   <li key={i} className="break-inside-avoid">
-                    <a href={`#section-${i + 1}`} className="text-white/60 hover:text-white">
+                    <a href={`#${s.id || `section-${i + 1}`}`} className="text-white/60 hover:text-white">
                       {i + 1}. {s.heading}
                     </a>
                   </li>
@@ -102,7 +102,7 @@ export default function LegalPage({ title, updated, intro = [], summary, toc = f
       <section>
         <div className="mx-auto max-w-3xl px-6 py-10 space-y-10">
           {sections.map((s, i) => (
-            <div key={i} id={`section-${i + 1}`} className="reveal scroll-mt-24">
+            <div key={i} id={s.id || `section-${i + 1}`} className="reveal scroll-mt-24">
               <h2 className="text-2xl font-light accent-text mb-2">
                 {i + 1}. {s.heading}
               </h2>

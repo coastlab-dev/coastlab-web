@@ -40,8 +40,14 @@ export default function Vault() {
               Vault lets you create, save, and send voice clips without ever leaving
               iMessage. No account to create — just tap, talk, and send.
             </p>
-            <div className="reveal mt-10">
+            <div className="reveal mt-10 flex flex-wrap items-center gap-4">
               <AppStoreBadge />
+              <Link
+                to="/waitlist"
+                className="inline-flex items-center px-7 py-3 rounded-full border accent-border accent-text text-sm tracking-widest uppercase hover:accent-bg-soft transition"
+              >
+                Join the waitlist
+              </Link>
             </div>
           </div>
 
@@ -118,7 +124,12 @@ export default function Vault() {
             Vault is on its way to the App Store. Need a hand in the meantime?
           </p>
           <div className="reveal mt-8 flex flex-wrap justify-center gap-4">
-            <AppStoreBadge />
+            <Link
+              to="/waitlist"
+              className="inline-flex items-center px-7 py-3 rounded-full border accent-border accent-text text-sm tracking-widest uppercase hover:accent-bg-soft transition"
+            >
+              Join the waitlist
+            </Link>
             <Link
               to="/support"
               className="inline-flex items-center px-7 py-3 rounded-full border border-line text-white/80 text-sm tracking-widest uppercase hover:accent-border hover:accent-text transition"
